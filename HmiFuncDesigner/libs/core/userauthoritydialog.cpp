@@ -68,7 +68,7 @@ QVariant TagUserTableModel::data(const QModelIndex &index, int role) const
         }
         QFontMetrics fontMetrics(data(index, Qt::FontRole).value<QFont>());
         option.fontMetrics = fontMetrics;
-        QSize size(fontMetrics.horizontalAdvance(option.currentText), fontMetrics.height());
+        QSize size(fontMetrics.width(option.currentText), fontMetrics.height());
         return qApp->style()->sizeFromContents(QStyle::CT_ComboBox, &option, size);
     }
     if (role == Qt::DisplayRole || role == Qt::EditRole) {
